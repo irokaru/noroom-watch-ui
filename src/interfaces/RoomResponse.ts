@@ -5,4 +5,4 @@ export type TRoomResponse = {
   status: "success" | string;
 } & IRoomInfomationValueType;
 
-export type IRoomResponse = AxiosResponse<TRoomResponse>;
+export type RoomResponse = AxiosResponse<TRoomResponse>;
