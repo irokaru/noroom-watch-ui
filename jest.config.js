@@ -3,4 +3,8 @@ module.exports = {
   transform: {
     "^.+\\.vue$": "vue-jest",
   },
+  testMatch: ["**/tests/**/*.spec.(ts|tsx)"],
+  moduleNameMapper: {
+    "^#/(.*)$": "<rootDir>/src/$1",
+  },
 };
