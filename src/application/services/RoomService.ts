@@ -1,7 +1,12 @@
+import {
+  createRoomInfomation,
+  RoomInformation,
+} from "#/domain/RoomInfomations";
 import { get } from "#/infrastructure/RoomAPI";
-import { TRoomResponse } from "#/interfaces/RoomResponse";
 
-export const fetchRoomInfomation = async (): Promise<TRoomResponse> => {
+export const fetchRoomInfomation = async (): Promise<
+  RoomInformation | { status: "error" }
+> => {
   try {
     const res = await get();
     const room = res.data;
@@ -9,17 +14,13 @@ export const fetchRoomInfomation = async (): Promise<TRoomResponse> => {
     if (room.status !== "success") {
       return {
         status: "error",
-        temperature: 0,
-        humidity: 0,
       };
     }
 
-    return room;
+    return createRoomInfomation(room);
   } catch (_) {
     return {
       status: "error",
-      temperature: 0,
-      humidity: 0,
     };
   }
 };

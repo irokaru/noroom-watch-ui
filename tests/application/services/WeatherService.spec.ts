@@ -1,21 +1,24 @@
-import { fetchRoomInfomation } from "#/application/services/RoomService";
-import { get } from "#/infrastructure/RoomAPI";
+import { fetchWeather } from "#/application/services/WeatherService";
+import { get } from "#/infrastructure/WeatherAPI";
 
-jest.mock("#/infrastructure/RoomAPI");
+jest.mock("#/infrastructure/WeatherAPI");
 
-describe("fetchRoomInfomation", () => {
+describe("fetchWeather", () => {
   test("正常に取れるか", async () => {
     const returnValue = {
       data: {
         status: "success",
-        temperature: 0,
-        humidity: 0,
+        weather: "sunny",
+        temp: 25,
+        temp_max: 30,
+        temp_min: 10,
+        icon: "iconurl",
       },
     };
 
     (get as jest.Mock).mockImplementation(() => Promise.resolve(returnValue));
 
-    const result = await fetchRoomInfomation();
+    const result = await fetchWeather();
     expect(result).toEqual(returnValue.data);
   });
 
@@ -23,14 +26,17 @@ describe("fetchRoomInfomation", () => {
     const returnValue = {
       data: {
         status: "error",
-        temperature: 25,
-        humidity: 60,
+        weather: "sunny",
+        temp: 25,
+        temp_max: 30,
+        temp_min: 10,
+        icon: "iconurl",
       },
     };
 
     (get as jest.Mock).mockImplementation(() => Promise.resolve(returnValue));
 
-    const result = await fetchRoomInfomation();
+    const result = await fetchWeather();
     expect(result).toEqual({ status: "error" });
   });
 
@@ -39,7 +45,7 @@ describe("fetchRoomInfomation", () => {
       Promise.reject({ status: "error" })
     );
 
-    const result = await fetchRoomInfomation();
+    const result = await fetchWeather();
     expect(result).toEqual({ status: "error" });
   });
 });
