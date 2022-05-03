@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
 
+/* https://encycolorpedia.com/8a705a */
 $theme: #8a705a;
 $light: #ebe6e2;
 $inverted: #758fa5;
@@ -12,6 +13,7 @@ html, body {
   font-family: 'Kiwi Maru', serif;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 #app {
@@ -19,4 +21,85 @@ html, body {
   border-radius: 40px;
   height: 100vh;
   width: 100vw;
+  text-align: center;
+
+  #time {
+    .date {
+      position: absolute;
+      font-size: 6vw;
+      width: 100%;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .times {
+      position: absolute;
+      font-size: 18vw;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  #room {
+    font-size: 6vw;
+
+    .temperature {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 70%;
+      left: 15%;
+    }
+
+    .humidity {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 80%;
+      left: 15%;
+    }
+
+    .icon {
+      margin: 0 .25em;
+
+      svg {
+        width: 5vw;
+        height: 6vw;
+      }
+    }
+
+    .value {
+      display: inline-block;
+    }
+  }
+
+  #weather {
+    position: absolute;
+    top: 68%;
+    right: 12%;
+
+    .main {
+      font-size: 10vw;
+    }
+
+    .temp-box {
+      font-size: 5vw;
+      display: flex;
+      .temp-max, .temp-min {
+        margin: 0 .25em;
+      }
+
+      .temp-max {
+        color: $sienna;
+      }
+
+      .temp-min {
+        color: $inverted;
+      }
+    }
+
+  }
 }
