@@ -17,14 +17,13 @@ import { formatDate } from "@/utils/Time";
 
 @Options({
   props: {
-    date: { required: true, type: Object as PropType<Date> },
+    date: { required: true, type: String },
   },
 })
 export default class TimeComponent extends Vue {
-  public date!: Date;
+  public date!: string;
 
   day(): string {
-    console.log(this.date);
     return formatDate(this.date, "MM/dd WW");
   }
 
