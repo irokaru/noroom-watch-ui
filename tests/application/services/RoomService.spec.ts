@@ -31,7 +31,7 @@ describe("fetchRoomInfomation", () => {
     (get as jest.Mock).mockImplementation(() => Promise.resolve(returnValue));
 
     const result = await fetchRoomInfomation();
-    expect(result).toEqual({ status: "error" });
+    expect(result).toBeNull();
   });
 
   test("例外時にエラー扱いになるか", async () => {
@@ -40,6 +40,6 @@ describe("fetchRoomInfomation", () => {
     );
 
     const result = await fetchRoomInfomation();
-    expect(result).toEqual({ status: "error" });
+    expect(result).toBeNull();
   });
 });
