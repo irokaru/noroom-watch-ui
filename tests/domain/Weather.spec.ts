@@ -1,9 +1,9 @@
-import { createWeather } from "#/domain/Weather";
+import { createWeather, IWeatherValueType } from "#/domain/Weather";
 
 describe("Weather", () => {
   test("Weatherが生成されるか", () => {
-    const params = {
-      weather: "sunny",
+    const params: IWeatherValueType = {
+      weather: "Clear",
       temp: 25,
       temp_max: 30,
       temp_min: 10,

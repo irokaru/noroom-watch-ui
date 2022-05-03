@@ -1,7 +1,25 @@
 import { DomainBase } from "./Base";
 
+export type TWeather =
+  | "Thunderstorm"
+  | "Drizzle"
+  | "Rain"
+  | "Snow"
+  | "Mist"
+  | "Smoke"
+  | "Haze"
+  | "Dust"
+  | "Fog"
+  | "Sand"
+  | "Dust"
+  | "Ash"
+  | "Squall"
+  | "Tornado"
+  | "Clear"
+  | "Clouds";
+
 export interface IWeatherValueType {
-  weather: string;
+  weather: TWeather;
   temp: number;
   temp_max: number;
   temp_min: number;
@@ -9,7 +27,7 @@ export interface IWeatherValueType {
 }
 
 export class Weather implements DomainBase, IWeatherValueType {
-  readonly weather!: string;
+  readonly weather!: TWeather;
   readonly temp!: number;
   readonly temp_max!: number;
   readonly temp_min!: number;
