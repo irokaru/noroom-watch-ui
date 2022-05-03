@@ -1,9 +1,23 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <TimeComponent :date="now" />
+  </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import TimeComponent from "@/components/TimeComponent.vue";
 
-export default class Home extends Vue {}
+@Options({
+  components: {
+    TimeComponent,
+  },
+})
+export default class Home extends Vue {
+  public now!: Date;
+
+  created() {
+    this.now = new Date();
+  }
+}
 </script>

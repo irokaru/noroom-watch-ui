@@ -1,13 +1,16 @@
 /**
  * 日付をフォーマットを整えて返す
- * @param {string} date
+ * @param {string | number | Date} date
  * @param {string} format
  * @returns {string}
  */
-export const formatDate = (date: string, format: string): string => {
+export const formatDate = (
+  date: string | number | Date,
+  format: string
+): string => {
   if (!date) return "";
 
-  const weekdayArray = ["日", "月", "火", "水", "木", "金", "土"];
+  const weekdayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const d = new Date(date);
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
