@@ -1,21 +1,21 @@
 import { TWeather } from "#/domain/Weather";
 
 const weatherToSolidIconLib: { [key in TWeather]: string[] } = {
-  Thunderstorm: ["solid", "cloud-bolt"],
-  Drizzle: ["solid", "fa-cloud-hail"],
-  Rain: ["solid", "cloud-shower"],
-  Snow: ["solid", "snowflake"],
-  Mist: ["solid", "cloud-fog"],
-  Smoke: ["solid", "cloud-fog"],
-  Haze: ["solid", "cloud-fog"],
-  Fog: ["solid", "cloud-fog"],
-  Sand: ["solid", "cloud-fog"],
-  Dust: ["solid", "cloud-fog"],
-  Ash: ["solid", "cloud-fog"],
-  Squall: ["solid", "cloud-fog"],
-  Tornado: ["solid", "tornado"],
-  Clear: ["solid", "sun"],
-  Clouds: ["solid", "clouds"],
+  Thunderstorm: ["fas", "cloud-bolt"],
+  Drizzle: ["fas", "fa-cloud-hail"],
+  Rain: ["fas", "cloud-shower"],
+  Snow: ["fas", "snowflake"],
+  Mist: ["fas", "cloud-fog"],
+  Smoke: ["fas", "cloud-fog"],
+  Haze: ["fas", "cloud-fog"],
+  Fog: ["fas", "cloud-fog"],
+  Sand: ["fas", "cloud-fog"],
+  Dust: ["fas", "cloud-fog"],
+  Ash: ["fas", "cloud-fog"],
+  Squall: ["fas", "cloud-fog"],
+  Tornado: ["fas", "tornado"],
+  Clear: ["fas", "sun"],
+  Clouds: ["fas", "clouds"],
 };
 
 export const weatherToSolidIcon = (weather: TWeather): string[] => {
