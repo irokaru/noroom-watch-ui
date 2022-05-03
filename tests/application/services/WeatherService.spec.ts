@@ -37,7 +37,7 @@ describe("fetchWeather", () => {
     (get as jest.Mock).mockImplementation(() => Promise.resolve(returnValue));
 
     const result = await fetchWeather();
-    expect(result).toEqual({ status: "error" });
+    expect(result).toBeNull();
   });
 
   test("例外時にエラー扱いになるか", async () => {
@@ -46,6 +46,6 @@ describe("fetchWeather", () => {
     );
 
     const result = await fetchWeather();
-    expect(result).toEqual({ status: "error" });
+    expect(result).toBeNull();
   });
 });
