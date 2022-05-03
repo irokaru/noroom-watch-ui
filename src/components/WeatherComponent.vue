@@ -1,8 +1,8 @@
 <template>
   <div id="weather">
-    <div class="main">{{ weather.main }}</div>
-    <div class="temp-max">{{ weather.temp_max }}</div>
-    <div class="temp-min">{{ weather.temp_min }}</div>
+    <div class="main">{{ weather.weather }}</div>
+    <div class="temp-max">{{ getTempMax() }}</div>
+    <div class="temp-min">{{ getTempMin() }}</div>
   </div>
 </template>
 
@@ -17,5 +17,12 @@ import { Weather } from "@/domain/Weather";
 })
 export default class WeatherComponent extends Vue {
   public weather!: Weather;
+
+  getTempMax(): string {
+    return this.weather.temp_max.toFixed(1);
+  }
+  getTempMin(): string {
+    return this.weather.temp_min.toFixed(1);
+  }
 }
 </script>
