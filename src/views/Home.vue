@@ -8,7 +8,6 @@
 import { Options, Vue } from "vue-class-component";
 import TimeComponent from "@/components/TimeComponent.vue";
 import { IntervalManager } from "@/utils/IntervalManager";
-import { formatDate } from "@/utils/Time";
 
 @Options({
   components: {
@@ -16,11 +15,11 @@ import { formatDate } from "@/utils/Time";
   },
 })
 export default class Home extends Vue {
-  public now!: string;
+  public now!: Date;
   public value = 0;
 
   private setTime() {
-    this.now = formatDate(new Date(), "YYYY-MM-dd hh:mm:ss");
+    this.now = new Date();
   }
 
   created() {
