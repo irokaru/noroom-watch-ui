@@ -1,8 +1,8 @@
 <template>
   <div id="weather">
     <div class="main"><fa :icon="getWeatherSolidIcon()" /></div>
-    <div class="temp-max">{{ getTempMax() }}</div>
-    <div class="temp-min">{{ getTempMin() }}</div>
+    <div class="temp-max">{{ getTempMax() }}℃</div>
+    <div class="temp-min">{{ getTempMin() }}℃</div>
   </div>
 </template>
 

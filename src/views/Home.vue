@@ -69,7 +69,7 @@ export default class Home extends Vue {
 
     const im = IntervalManager.getInstance();
 
-    im.setInterval("_", () => this.value++ % 10, 500, this);
+    im.setInterval("_", () => (this.value = (this.value + 1) % 10), 500, this);
     im.setInterval("time", this.setTime, 500, this);
     im.setInterval("room", this.updateRoom, 10000, this);
     im.setInterval("weather", this.updateWeather, 10000, this);
