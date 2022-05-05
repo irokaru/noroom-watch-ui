@@ -5,7 +5,7 @@ $theme: #8a705a;
 $light: #ebe6e2;
 $inverted: #758fa5;
 $olive: #808000;
-$sienna: #a0522d;
+$sienna: #cc683a;
 
 html, body {
   background-color: #000;
@@ -30,7 +30,7 @@ html, body {
       position: absolute;
       font-size: 6vw;
       width: 100%;
-      top: 30%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -39,7 +39,7 @@ html, body {
       position: absolute;
       font-size: 18vw;
       width: 100%;
-      top: 50%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -52,7 +52,7 @@ html, body {
       display: flex;
       justify-content: center;
       position: absolute;
-      top: 70%;
+      top: 65%;
       left: 15%;
     }
 
@@ -80,8 +80,8 @@ html, body {
 
   #weather {
     position: absolute;
-    top: 68%;
-    right: 12%;
+    top: 60%;
+    right: 10%;
 
     .main {
       font-size: 10vw;
@@ -90,8 +90,9 @@ html, body {
     .temp-box {
       font-size: 5vw;
       display: flex;
+      margin-top: -.25em;
       .temp-max, .temp-min {
-        margin: 0 .25em;
+        margin: 0 .5em;
       }
 
       .temp-max {
