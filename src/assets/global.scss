@@ -80,17 +80,17 @@ html, body {
 
   #weather {
     position: absolute;
+    display: flex;
     top: 60%;
-    right: 10%;
+    right: 14%;
 
     .main {
-      font-size: 10vw;
+      font-size: 15vw;
     }
 
     .temp-box {
       font-size: 5vw;
-      display: flex;
-      margin-top: -.25em;
+      margin: auto;
       .temp-max, .temp-min {
         margin: 0 .5em;
       }
