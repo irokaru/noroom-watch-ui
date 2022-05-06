@@ -3,9 +3,9 @@
 /* https://encycolorpedia.com/8a705a */
 $theme: #8a705a;
 $light: #ebe6e2;
-$inverted: #758fa5;
+$blue: #96b5cf;
 $olive: #808000;
-$sienna: #cc683a;
+$red: #e77844;
 
 html, body {
   background-color: #000;
@@ -85,7 +85,8 @@ html, body {
     right: 14%;
 
     .main {
-      font-size: 15vw;
+      font-size: 10vw;
+      margin: .45em .25em;
     }
 
     .temp-box {
@@ -96,11 +97,11 @@ html, body {
       }
 
       .temp-max {
-        color: $sienna;
+        color: $red;
       }
 
       .temp-min {
-        color: $inverted;
+        color: $blue;
       }
     }
 
