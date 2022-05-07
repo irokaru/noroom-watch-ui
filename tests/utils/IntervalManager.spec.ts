@@ -7,15 +7,9 @@ describe("getInstance", () => {
   });
 
   test("new したら叱られるか", () => {
-    try {
+    expect(() => {
       new IntervalManager();
-    } catch (e) {
-      if (e instanceof Error) {
-        expect(e.message).toEqual(
-          "Use IntervalManager.getInstance() instead of new."
-        );
-      }
-    }
+    }).toThrowError("Use IntervalManager.getInstance() instead of new.");
   });
 });
 

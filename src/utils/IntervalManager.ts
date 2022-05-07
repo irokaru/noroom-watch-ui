@@ -21,8 +21,8 @@ export class IntervalManager {
    */
   setInterval = (key: string, func: () => any, ms: number, instance?: any) => {
     const id = instance
-      ? setInterval((() => func()).bind(instance), ms)
-      : setInterval(() => func(), ms);
+      ? window.setInterval((() => func()).bind(instance), ms)
+      : window.setInterval(() => func(), ms);
     this._intervals[key] = id;
   };
 
