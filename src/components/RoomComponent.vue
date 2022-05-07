@@ -5,7 +5,7 @@
         <fa :icon="['fas', 'temperature-half']" />
       </div>
 
-      <div class="value">{{ room.temperature }}℃</div>
+      <div class="value">{{ getTemperature() }}℃</div>
     </div>
 
     <div class="humidity">
@@ -29,5 +29,9 @@ import { RoomInformation } from "@/domain/RoomInfomations";
 })
 export default class RoomComponent extends Vue {
   public room!: RoomInformation;
+
+  getTemperature(): string {
+    return this.room.temperature.toFixed(1);
+  }
 }
 </script>
