@@ -8,8 +8,6 @@ export const formatDate = (
   date: string | number | Date,
   format: string
 ): string => {
-  if (!date) return "";
-
   const weekdayArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const d = new Date(date);
   const year = d.getFullYear();
@@ -39,19 +37,23 @@ export const formatDate = (
   const replaceStr = "(" + Object.keys(replaceArray).join("|") + ")";
 
   const regex = new RegExp(replaceStr, "g");
-  const ret = format.replace(regex, (str) => String(replaceArray[str]));
 
-  return ret;
+  return format.replace(regex, (str) => String(replaceArray[str]));
 };
 
 /**
  * 時刻を比べるやつ
- * @param {string} t1
- * @param {string} exp
- * @param {string} t2
+ * @param {string} t1 hh:mm
+ * @param {string} ope
+ * @param {string} t2 hh:mm
  * @returns {boolean}
  */
-export const compare = (t1: string, exp: string, t2: string): boolean => {
+export const compare = (t1: string, ope: string, t2: string): boolean => {
+  const timeReg = /^([01][0-9]|2[0-3]):[0-5][0-9]$/;
+
+  if (!t1.match(timeReg)) throw new Error("t1 is not time format (hh:mm)");
+  if (!t2.match(timeReg)) throw new Error("t2 is not time format (hh:mm)");
+
   const d1 = Number(t1.replace(/:/g, ""));
   const d2 = Number(t2.replace(/:/g, ""));
 
@@ -62,5 +64,7 @@ export const compare = (t1: string, exp: string, t2: string): boolean => {
     ">=": (a, b) => a >= b,
   };
 
-  return map[exp](d1, d2);
+  if (!Object.keys(map).includes(ope)) throw new Error("invalid ope");
+
+  return map[ope](d1, d2);
 };
