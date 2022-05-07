@@ -68,3 +68,22 @@ export const compare = (t1: string, ope: string, t2: string): boolean => {
 
   return map[ope](d1, d2);
 };
+
+/**
+ * 間の時間かどうかの判定をする
+ * @param now
+ * @param startTime hh:mm
+ * @param endTime hh:mm
+ * @returns {boolean}
+ */
+export const between = (
+  now: Date,
+  startTime: string,
+  endTime: string
+): boolean => {
+  const nowTime = formatDate(now, "hh:mm");
+
+  return compare(startTime, "<=", endTime)
+    ? compare(startTime, "<=", nowTime) && compare(nowTime, "<=", endTime)
+    : compare(startTime, "<=", nowTime) || compare(nowTime, "<=", endTime);
+};
