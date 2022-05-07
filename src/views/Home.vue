@@ -3,6 +3,7 @@
     <time-component :date="now" :value="value" />
     <room-component :room="room" />
     <weather-component :weather="weather" />
+    <shadow-wrapper :isNight="isNight()" />
   </div>
 </template>
 
@@ -11,7 +12,9 @@ import { Options, Vue } from "vue-class-component";
 import TimeComponent from "@/components/TimeComponent.vue";
 import RoomComponent from "@/components/RoomComponent.vue";
 import WeatherComponent from "@/components/WeatherComponent.vue";
+import ShadowWrapper from "@/components/ShadowWrapper.vue";
 import { IntervalManager } from "@/utils/IntervalManager";
+import { between } from "@/utils/Time";
 import {
   createRoomInfomation,
   RoomInformation,
@@ -25,6 +28,7 @@ import { fetchWeather } from "@/application/services/WeatherService";
     TimeComponent,
     RoomComponent,
     WeatherComponent,
+    ShadowWrapper,
   },
 })
 export default class Home extends Vue {
@@ -60,6 +64,10 @@ export default class Home extends Vue {
     if (!res) return;
 
     this.weather = res;
+  }
+
+  public isNight() {
+    return between(this.now, "00:00", "08:00");
   }
 
   created() {
