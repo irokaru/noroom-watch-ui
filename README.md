@@ -31,3 +31,8 @@ npm run test:coverage
 ```
 npm run lint
 ```
+
+### Run Server for compiled production app
+```
+node src/server.js
+```
