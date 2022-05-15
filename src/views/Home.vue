@@ -38,11 +38,9 @@ export default class Home extends Vue {
     humidity: 0,
   });
   public weather: Weather = createWeather({
-    weather: "Clear",
-    temp: 0,
+    weather: "晴",
     temp_max: 0,
     temp_min: 0,
-    icon: "",
   });
   public value = 0;
 
@@ -80,7 +78,7 @@ export default class Home extends Vue {
     im.setInterval("_", () => (this.value = (this.value + 1) % 10), 500, this);
     im.setInterval("time", this.setTime, 500, this);
     im.setInterval("room", this.updateRoom, 10000, this);
-    im.setInterval("weather", this.updateWeather, 10000, this);
+    im.setInterval("weather", this.updateWeather, 15000, this);
   }
 }
 </script>

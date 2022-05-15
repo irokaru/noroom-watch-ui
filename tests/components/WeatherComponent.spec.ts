@@ -6,11 +6,11 @@ import { shallowMount } from "@vue/test-utils";
 describe("WeatherComponent", () => {
   test("入力値通りにアイコンが表示されるか", () => {
     const suites: [Partial<Weather>, string][] = [
-      [{ weather: "Clear", temp_max: 0, temp_min: 0 }, "fas,sun"],
-      [{ weather: "Clouds", temp_max: 0, temp_min: 0 }, "fas,cloud"],
-      [{ weather: "Fog", temp_max: 0, temp_min: 0 }, "fas,smog"],
-      [{ weather: "Rain", temp_max: 0, temp_min: 0 }, "fas,cloud-rain"],
-      [{ weather: "Snow", temp_max: 0, temp_min: 0 }, "fas,snowflake"],
+      [{ weather: "晴", temp_max: 0, temp_min: 0 }, "fas,sun"],
+      [{ weather: "曇", temp_max: 0, temp_min: 0 }, "fas,cloud"],
+      [{ weather: "雨", temp_max: 0, temp_min: 0 }, "fas,cloud-rain"],
+      [{ weather: "雪", temp_max: 0, temp_min: 0 }, "fas,snowflake"],
+      [{ weather: "あ", temp_max: 0, temp_min: 0 }, "fas,circle-question"],
     ];
 
     for (const [weather, expectIconTagValue] of suites) {
@@ -26,13 +26,9 @@ describe("WeatherComponent", () => {
 
   test("入力値通りに温湿度が表示されるか", () => {
     const suites: [Partial<Weather>, string, string][] = [
-      [{ weather: "Clear", temp_max: 0, temp_min: 0 }, "0.0℃", "0.0℃"],
-      [{ weather: "Clear", temp_max: 12.3, temp_min: 12.3 }, "12.3℃", "12.3℃"],
-      [
-        { weather: "Clear", temp_max: 12.345, temp_min: 12.345 },
-        "12.3℃",
-        "12.3℃",
-      ],
+      [{ weather: "晴", temp_max: 0, temp_min: 0 }, "0.0℃", "0.0℃"],
+      [{ weather: "晴", temp_max: 12.3, temp_min: 12.3 }, "12.3℃", "12.3℃"],
+      [{ weather: "晴", temp_max: 12.345, temp_min: 12.345 }, "12.3℃", "12.3℃"],
     ];
 
     for (const [weather, expectMaxTempValue, expectMinTempValue] of suites) {

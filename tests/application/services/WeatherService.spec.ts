@@ -8,11 +8,9 @@ describe("fetchWeather", () => {
     const returnValue = {
       data: {
         status: "success",
-        weather: "sunny",
-        temp: 25,
+        weather: "晴",
         temp_max: 30,
         temp_min: 10,
-        icon: "iconurl",
       },
     };
 
@@ -26,7 +24,7 @@ describe("fetchWeather", () => {
     const returnValue = {
       data: {
         status: "error",
-        weather: "sunny",
+        weather: "雨",
         temp: 25,
         temp_max: 30,
         temp_min: 10,
